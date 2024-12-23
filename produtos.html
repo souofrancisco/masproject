@@ -47,18 +47,17 @@
     <section class="pt-4">
         <div class="container pt-4 pt-xl-5">
             <div class="row">
-                <!-- Barra lateral com categorias -->
                 <div class="col-md-2 mb-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Categorias</h5>
+                            <h5 class="card-title" data-bind="click: function() { categoriaSelecionada(''); }">Categorias</h5>
                             <ul class="list-unstyled">
-                                <li><a href="#" class="text-muted">Alimentos</a></li>
-                                <li><a href="#" class="text-muted">Acessórios</a></li>
-                                <li><a href="#" class="text-muted">Saúde</a></li>
-                                <li><a href="#" class="text-muted">Brinquedos</a></li>
-                                <li><a href="#" class="text-muted">Higiene</a></li>
-                                <li><a href="#" class="text-muted">Roupas</a></li>
+                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Alimentos'); }">Alimentos</a></li>
+                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Acessórios'); }">Acessórios</a></li>
+                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Saúde'); }">Saúde</a></li>
+                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Brinquedos'); }">Brinquedos</a></li>
+                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Higiene'); }">Higiene</a></li>
+                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Roupas'); }">Roupas</a></li>
                             </ul>
                         </div>
                     </div>
