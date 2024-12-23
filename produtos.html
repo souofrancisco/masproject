@@ -33,7 +33,7 @@
                     <i class="fas fa-shopping-cart"></i>
                 </a>
             </div>
-
+    
             <div class="container mt-2">
                 <ul class="nav justify-content-center">
                     <li class="nav-item"><a class="nav-link" href="produtos.html" style="color: #000;">Produtos</a></li>
@@ -42,25 +42,74 @@
                 </ul>
             </div>
         </div>
-        <!-- Navigation Links -->
     </nav>
-    <section class="pt-5">
+    
+    <section class="pt-4">
         <div class="container pt-4 pt-xl-5">
-            <div class="row pt-5">
-                <div class="col-md-8 text-center text-md-start mx-auto">
-                    <div class="text-center">
-                        <h1 class="display-4 fw-bold mb-5">Encontre o que o seu amigo mais precisa connosco</h1>
-                        <p class="fs-5 text-muted mb-5">Queremos ajudá-lo a aprender tudo o que precisa!</p>
-                        <form class="d-flex justify-content-center flex-wrap" method="post">
+            <div class="row">
+                <!-- Barra lateral com categorias -->
+                <div class="col-md-2 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Categorias</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-muted">Alimentos</a></li>
+                                <li><a href="#" class="text-muted">Acessórios</a></li>
+                                <li><a href="#" class="text-muted">Saúde</a></li>
+                                <li><a href="#" class="text-muted">Brinquedos</a></li>
+                                <li><a href="#" class="text-muted">Higiene</a></li>
+                                <li><a href="#" class="text-muted">Roupas</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <!-- A imagem foi removida conforme solicitado -->
+    
+                <!-- Produtos -->
+                <div class="col-md-10">
+                    <h3 class="display-6 fw-bold mb-3">Nossos produtos</h3>
+                    <p class="fs-6 text-muted mb-5">Explore nossos produtos e serviços exclusivos para cuidados e bem-estar do seu cãozinho!</p>
+    
+                    <!-- Grid de Produtos -->
+                    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4" data-bind="foreach: produtosNaPagina">
+                        <!-- Item Card -->
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img data-bind="attr: { src: Banner }" alt="Produto" class="card-img-top">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title fs-5" data-bind="text: Nome">Erro!</h5>
+                                    <p class="card-text fs-6 text-truncate-2" data-bind="text: Descricao"></p>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <a data-bind="click: function() { $parent.detalhesProduto(Id) }" class="btn btn-primary">Mais Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="d-flex justify-content-center mt-4">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li class="page-item" data-bind="css: { 'disabled': paginaAtual() <= 1 }">
+                                    <button class="page-link" data-bind="click: paginaAnterior">Anterior</button>
+                                </li>
+                                <li class="page-item" data-bind="css: { 'active': paginaAtual() === 1 }">
+                                    <span class="page-link" data-bind="text: 1"></span>
+                                </li>
+                                <li class="page-item" data-bind="css: { 'active': paginaAtual() === 2 }">
+                                    <span class="page-link" data-bind="text: 2"></span>
+                                </li>
+                                <li class="page-item" data-bind="css: { 'active': paginaAtual() === 3 }">
+                                    <span class="page-link" data-bind="text: 3"></span>
+                                </li>
+                                <li class="page-item" data-bind="css: { 'disabled': paginaAtual() >= totalPaginas() }">
+                                    <button class="page-link" data-bind="click: paginaProxima">Próximo</button>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>        
             </div>
         </div>
     </section>
-      
-    <section></section>
-    <section></section>
+     
     <footer>
         <div class="container py-4 py-lg-5">
             <div class="row row-cols-2 row-cols-md-4">
@@ -112,6 +161,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/knockout-3.5.1.js"></script>
+    <script src="assets/js/produtos.js"></script>
 </body>
 
 </html>
