@@ -29,11 +29,11 @@
                 <a href="login.html" style="margin-right: 20px; color: #000;">
                     <i class="fas fa-user"></i> Login/Registo
                 </a>
-                <a href="carrinho.html" style="color: #000000;">
+                <a href="carrinho.html" style="color: #000;">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
             </div>
-    
+
             <div class="container mt-2">
                 <ul class="nav justify-content-center">
                     <li class="nav-item"><a class="nav-link" href="produtos.html" style="color: #000;">Produtos</a></li>
@@ -42,78 +42,64 @@
                 </ul>
             </div>
         </div>
+        <!-- Navigation Links -->
     </nav>
-    
-    <section class="pt-4">
-        <div class="container pt-4 pt-xl-5">
-            <div class="row">
-                <div class="col-md-2 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title" data-bind="click: function() { categoriaSelecionada(''); }">Categorias</h5>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Alimentos'); }">Alimentos</a></li>
-                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Acessórios'); }">Acessórios</a></li>
-                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Saúde'); }">Saúde</a></li>
-                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Brinquedos'); }">Brinquedos</a></li>
-                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Higiene'); }">Higiene</a></li>
-                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Roupas'); }">Roupas</a></li>
-                            </ul>
+    <div class="container my-5">
+        <h2 class="mb-4 text-center">O seu Carrinho</h2>
+        <div class="row">
+            <!-- Produtos no Carrinho -->
+            <div class="col-lg-8" data-bind="foreach: carrinho">
+                <div class="card mb-4 shadow-sm">
+                    <div class="row g-0">
+                        <!-- Imagem do Produto -->
+                        <div class="col-4 col-md-3">
+                            <img data-bind="attr: { src: Banner }" class="img-fluid rounded-start" alt="Produto">
                         </div>
-                    </div>
-                </div>
-    
-                <!-- Produtos -->
-                <div class="col-md-10">
-                    <h3 class="display-6 fw-bold mb-3">Nossos produtos</h3>
-                    <p class="fs-6 text-muted mb-5">Explore nossos produtos e serviços exclusivos para cuidados e bem-estar do seu cãozinho!</p>
-    
-                    <!-- Grid de Produtos -->
-                    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4" data-bind="foreach: produtosNaPagina">
-                        <!-- Item Card -->
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                <img data-bind="attr: { src: Banner }" alt="Produto" class="card-img-top">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fs-5" data-bind="text: Nome">Erro!</h5>
-                                    <p class="card-text fs-6 text-truncate-2" data-bind="text: Descricao"></p>
-                                    <!-- Preço do produto -->
-                                    <p class="card-text fs-5 text-success" data-bind="text: 'R$ ' + Preco.toFixed(2)"></p>
+                        <!-- Informações do Produto -->
+                        <div class="col-8 col-md-9">
+                            <div class="card-body d-flex flex-column justify-content-between h-100">
+                                <div>
+                                    <h5 class="card-title mb-2" data-bind="text: Nome">Produto</h5>
+                                    <p class="card-text text-muted small mb-1 text-truncate-2" data-bind="text: Descricao">Descrição breve do produto.</p>
+                                    <p class="card-text">
+                                        <strong>Preço:</strong> <span data-bind="text: Preco"></span>€
+                                    </p>
                                 </div>
-                                <div class="card-footer text-center">
-                                    <!-- Botão de Adicionar ao Carrinho com ícone -->
-                                    <a data-bind="click: function() { $parent.addCarrinho(Id) }" class="btn btn-success">
-                                        <i class="fas fa-shopping-cart"></i> <!-- Ícone do carrinho -->
-                                    </a>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <!-- Controle de Quantidade -->
+                                    <div>
+                                        <label for="quantidade" class="form-label mb-0 small">Qtd:</label>
+                                        <input type="number" id="quantidade" class="form-control form-control-sm w-auto d-inline-block" min="1" data-bind="value: Qtd, event: { change: $parent.updateQuantity }">
+                                    </div>
+                                    <!-- Botão Remover -->
+                                    <button class="btn btn-danger btn-sm ms-3" data-bind="click: $parent.removeItem">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>                    
-                    <div class="d-flex justify-content-center mt-4">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination">
-                                <li class="page-item" data-bind="css: { 'disabled': paginaAtual() <= 1 }">
-                                    <button class="page-link" data-bind="click: paginaAnterior">Anterior</button>
-                                </li>
-                                <li class="page-item" data-bind="css: { 'active': paginaAtual() === 1 }">
-                                    <span class="page-link" data-bind="text: 1"></span>
-                                </li>
-                                <li class="page-item" data-bind="css: { 'active': paginaAtual() === 2 }">
-                                    <span class="page-link" data-bind="text: 2"></span>
-                                </li>
-                                <li class="page-item" data-bind="css: { 'active': paginaAtual() === 3 }">
-                                    <span class="page-link" data-bind="text: 3"></span>
-                                </li>
-                                <li class="page-item" data-bind="css: { 'disabled': paginaAtual() >= totalPaginas() }">
-                                    <button class="page-link" data-bind="click: paginaProxima">Próximo</button>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>                                     
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Resumo do Carrinho -->
+            <div class="col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Resumo do Carrinho</h4>
+                        <hr>
+                        <p class="d-flex justify-content-between">
+                            <span>Total:</span>
+                            <strong><span data-bind="text: total"></span>€</strong>
+                        </p>
+                        <button onclick="redirect()" class="btn btn-success w-100 mt-3">
+                            Finalizar Compra <i class="fa fa-credit-card ms-2"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-     
+    </div>    
     <footer>
         <div class="container py-4 py-lg-5">
             <div class="row row-cols-2 row-cols-md-4">
@@ -165,7 +151,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/knockout-3.5.1.js"></script>
-    <script src="assets/js/produtos.js"></script>
+    <script src="assets/js/carrinho.js"></script>
 </body>
 
 </html>

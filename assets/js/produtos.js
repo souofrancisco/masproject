@@ -3,7 +3,7 @@
             var urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name);
         }
-
+        
         function carregarProdutos() {
             // Tenta obter os produtos do localStorage
             var produtosSalvos = localStorage.getItem('produtos');
@@ -13,14 +13,14 @@
             } else {
                 // Se não houver produtos no localStorage, retorna a lista padrão
                 var produtosDefault = [
-                    { Id: 1, Nome: "Produto A", Descricao: "Descrição do Produto A", Preco: 10, Banner: "https://via.placeholder.com/150", Categoria: "Alimentos" },
-                    { Id: 2, Nome: "Produto B", Descricao: "Descrição do Produto B", Preco: 20, Banner: "https://via.placeholder.com/150", Categoria: "Acessórios" },
-                    { Id: 3, Nome: "Produto C", Descricao: "Descrição do Produto C", Preco: 30, Banner: "https://via.placeholder.com/150", Categoria: "Saúde" },
-                    { Id: 4, Nome: "Produto D", Descricao: "Descrição do Produto D", Preco: 40, Banner: "https://via.placeholder.com/150", Categoria: "Brinquedos" },
-                    { Id: 5, Nome: "Produto E", Descricao: "Descrição do Produto E", Preco: 50, Banner: "https://via.placeholder.com/150", Categoria: "Higiene" },
-                    { Id: 6, Nome: "Produto F", Descricao: "Descrição do Produto F", Preco: 60, Banner: "https://via.placeholder.com/150", Categoria: "Roupas" },
-                    { Id: 7, Nome: "Produto G", Descricao: "Descrição do Produto G", Preco: 70, Banner: "https://via.placeholder.com/150", Categoria: "Alimentos" },
-                    { Id: 8, Nome: "Produto H", Descricao: "Descrição do Produto H", Preco: 80, Banner: "https://via.placeholder.com/150", Categoria: "Acessórios" }
+                    { Id: 1, Qtd: 0, Stock: 3, Nome: "Produto A", Descricao: "Descrição do Produto A", Preco: 10, Banner: "https://via.placeholder.com/150", Categoria: "Alimentos" },
+                    { Id: 2, Qtd: 0, Stock: 2, Nome: "Produto B", Descricao: "Descrição do Produto B", Preco: 20, Banner: "https://via.placeholder.com/150", Categoria: "Acessórios" },
+                    { Id: 3, Qtd: 0, Stock: 2, Nome: "Produto C", Descricao: "Descrição do Produto C", Preco: 30, Banner: "https://via.placeholder.com/150", Categoria: "Saúde" },
+                    { Id: 4, Qtd: 0, Stock: 2, Nome: "Produto D", Descricao: "Descrição do Produto D", Preco: 40, Banner: "https://via.placeholder.com/150", Categoria: "Brinquedos" },
+                    { Id: 5, Qtd: 0, Stock: 2, Nome: "Produto E", Descricao: "Descrição do Produto E", Preco: 50, Banner: "https://via.placeholder.com/150", Categoria: "Higiene" },
+                    { Id: 6, Qtd: 0, Stock: 2, Nome: "Produto F", Descricao: "Descrição do Produto F", Preco: 60, Banner: "https://via.placeholder.com/150", Categoria: "Roupas" },
+                    { Id: 7, Qtd: 0, Stock: 2, Nome: "Produto G", Descricao: "Descrição do Produto G", Preco: 70, Banner: "https://via.placeholder.com/150", Categoria: "Alimentos" },
+                    { Id: 8, Qtd: 0, Stock: 2, Nome: "Produto H", Descricao: "Descrição do Produto H", Preco: 80, Banner: "https://via.placeholder.com/150", Categoria: "Acessórios" }
                 ];
                 // Salva os produtos padrão no localStorage
                 localStorage.setItem('produtos', JSON.stringify(produtosDefault));
@@ -100,6 +100,39 @@
                 history.pushState(null, null, novaUrl);
             }
 
+            self.addCarrinho = function(id) {
+                let carr = localStorage.getItem("carrinho");
+                var item = self.produtos().find((element) => element.Id == id);
+            
+                if (carr) {
+                    var carrinho = JSON.parse(carr);
+                    console.log(carrinho);
+            
+                    var existingItem = carrinho.find(function(ItemInCar) {
+                        return ItemInCar.Id === item.Id;
+                    });
+            
+                    // Se o item já existe no carrinho, aumenta a quantidade
+                    if (existingItem) {
+                        existingItem.Qtd += 1;
+                    } else {
+                        item.Qtd = 1; 
+                        carrinho.push(item);
+                    }
+            
+                    // Salva o carrinho atualizado no localStorage
+                    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+                } else {
+                    // Se não houver carrinho, cria um novo com o item
+                    item.Qtd = 1; 
+                    var carrinho = [item];
+                    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+                }
+            
+                // Exibe o carrinho para depuração
+                console.log(JSON.parse(localStorage.getItem("carrinho")));
+            }
+            
             console.log("Produtos carregados:", self.produtos());
             console.log("Página atual:", self.paginaAtual());
             console.log("Total de páginas:", self.totalPaginas());
