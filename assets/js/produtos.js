@@ -13,7 +13,7 @@
             } else {
                 // Se não houver produtos no localStorage, retorna a lista padrão
                 var produtosDefault = [
-                    { Id: 1, Qtd: 0, Stock: 3, Nome: "Produto A", Descricao: "Descrição do Produto A", Preco: 10, Banner: "https://via.placeholder.com/150", Categoria: "Alimentos" },
+                    { Id: 1, Qtd: 0, Stock: 3, Nome: "Royal Canin Starter Maxi Mother&Baby, 4kg", Descricao: "A ração Royal Canin Maxi Starter Mother & Babydog é recomendada para a alimentação específica de cachorros de raças grandes durante o desmame e nos primeiros meses de vida.", Preco: 32, Banner: "https://www.tiendanimal.pt/dw/image/v2/BDLQ_PRD/on/demandware.static/-/Sites-kiwoko-master-catalog/default/dwcbf38284/images/pienso_perros_royal%20canin_%20maxi_starter%20mother%20&%20babydog_ROY153336_M_2.jpg?sw=780&sh=780&sm=fit&q=85", Categoria: "Alimentos" },
                     { Id: 2, Qtd: 0, Stock: 2, Nome: "Produto B", Descricao: "Descrição do Produto B", Preco: 20, Banner: "https://via.placeholder.com/150", Categoria: "Acessórios" },
                     { Id: 3, Qtd: 0, Stock: 2, Nome: "Produto C", Descricao: "Descrição do Produto C", Preco: 30, Banner: "https://via.placeholder.com/150", Categoria: "Saúde" },
                     { Id: 4, Qtd: 0, Stock: 2, Nome: "Produto D", Descricao: "Descrição do Produto D", Preco: 40, Banner: "https://via.placeholder.com/150", Categoria: "Brinquedos" },

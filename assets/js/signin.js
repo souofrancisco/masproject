@@ -26,7 +26,7 @@ function signin () {
     
     if (nome.value.trim().length < 3) {
         alert("O nome tem de ter no mínimo três letras");
-    } else if (email.value.trim().length === 0) {
+    } else if (!/^.{3,}@.{3,}\..{2,}$/.test(email.value.trim())) {
         alert("Por favor insira o email");
     } else if (password.value.length < 4) {
         alert("A password tem de ter no mínimo quatro caracteres!");
