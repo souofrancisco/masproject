@@ -1,12 +1,11 @@
-if (!localStorage.getItem("inacio@gmail.com")) {
-    var d = {Nome:"Inácio",
+if (!localStorage.getItem("joao@gmail.com")) {
+    var d = {Nome:"joao",
         Id:0,
-        Email:"inacio@gmail.com",
+        Email:"joao@gmail.com",
         Password:"aaaa",
-        Cargo:"prod",
         Pagamento:[]
     }
-    localStorage.setItem("inacio@gmail.com",JSON.stringify(d));
+    localStorage.setItem("joao@gmail.com",JSON.stringify(d));
 }
 
 
