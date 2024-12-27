@@ -26,7 +26,7 @@
             
             <!-- Icons -->
             <div class="d-flex align-items-center">
-                <a href="login.html" style="margin-right: 20px; color: #000;">
+                <a id="authLink" href="login.html" style="margin-right: 20px; color: #000;">
                     <i class="fas fa-user"></i> Login/Registo
                 </a>
                 <a href="carrinho.html" style="color: #000;">
@@ -38,7 +38,7 @@
                 <ul class="nav justify-content-center">
                     <li class="nav-item"><a class="nav-link" href="produtos.html" style="color: #000;">Produtos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" style="color: #000;">Veterinário</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: #000;">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html" style="color: #000;">Blog</a></li>
                 </ul>
             </div>
         </div>
@@ -65,29 +65,13 @@
         <div class="container py-4 py-lg-5">
             <div class="row row-cols-2 row-cols-md-4">
                 <div class="col-12 col-md-3">
-                    <div class="fw-bold d-flex align-items-center mb-2"><span>Petlink</span></div>
+                    <div class="fw-bold d-flex align-items-center mb-2"><span>Casa do cão</span></div>
                     <p class="text-muted"></p>
                 </div>
                 <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
                     <h3 class="fs-6 fw-bold">Services</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#">Veterinário</a></li>
-                        <li><a href="#">Loja</a></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">About</h3>
-                    <ul class="list-unstyled">
-                        <li>Empresa</li>
-                        <li>Equipa</li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">Careers</h3>
-                    <ul class="list-unstyled">
-                        <li>Oportunidades</li>
-                        <li></li>
+                        <li><a href="produtos.html">Loja</a></li>
                         <li></li>
                     </ul>
                 </div>
@@ -112,6 +96,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/knockout-3.5.1.js"></script>
+    <script>
+    const isLoggedIn = localStorage.getItem("atual") != null;
+
+    const authLink = document.getElementById("authLink");
+
+    if (isLoggedIn) {
+        // Usuário logado - Exibir perfil
+        authLink.href = "perfil.html";
+        authLink.innerHTML = '<i class="fas fa-user"></i> Perfil';
+    } else {
+        // Usuário não logado - Exibir login/registro
+        authLink.href = "perfil.html";
+        authLink.innerHTML = '<i class="fas fa-user"></i> Login/Registo';
+    }
+    </script>
 </body>
 
 </html>

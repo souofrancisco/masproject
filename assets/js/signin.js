@@ -45,7 +45,7 @@ function signin () {
         localStorage.setItem("useriduniversal", JSON.stringify(id+1))
         localStorage.setItem(email.value, JSON.stringify(conta));
         localStorage.setItem("atual", JSON.stringify(conta));
-        window.location.href = 'index.html';
+        window.location.href = 'perfil.html';
     }
 }
 

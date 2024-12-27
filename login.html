@@ -90,10 +90,10 @@
         </a>               
         <h1>Login</h1>
         <p>Novo no nosso website? <a href="registro.html" class="link">Crie a sua conta</a></p>
-        <form>
+        <form id="loginForm">
             <input type="email" id="email" name="email" placeholder="Email *" required>
             <input type="password" id="password" name="password" placeholder="Password *" required>
-            <button type="submit" class="btn" onclick="login()">Entrar</button>
+            <button type="button" class="btn" onclick="login(event)">Entrar</button> <!-- Mudança para "type='button'" -->
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

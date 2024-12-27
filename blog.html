@@ -29,11 +29,11 @@
                 <a id="authLink" href="login.html" style="margin-right: 20px; color: #000;">
                     <i class="fas fa-user"></i> Login/Registo
                 </a>
-                <a href="carrinho.html" style="color: #000000;">
+                <a href="carrinho.html" style="color: #000;">
                     <i class="fas fa-shopping-cart"></i>
                 </a>
             </div>
-    
+
             <div class="container mt-2">
                 <ul class="nav justify-content-center">
                     <li class="nav-item"><a class="nav-link" href="produtos.html" style="color: #000;">Produtos</a></li>
@@ -42,78 +42,44 @@
                 </ul>
             </div>
         </div>
+        <!-- Navigation Links -->
     </nav>
-    
-    <section class="pt-4">
+    <section class="pt-5">
         <div class="container pt-4 pt-xl-5">
-            <div class="row">
-                <div class="col-md-2 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title" data-bind="click: function() { categoriaSelecionada(''); }">Categorias</h5>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Alimentos'); }">Alimentos</a></li>
-                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Acessórios'); }">Acessórios</a></li>
-                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Saúde'); }">Saúde</a></li>
-                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Brinquedos'); }">Brinquedos</a></li>
-                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Higiene'); }">Higiene</a></li>
-                                <li><a href="#" class="text-muted" data-bind="click: function() { categoriaSelecionada('Roupas'); }">Roupas</a></li>
-                            </ul>
-                        </div>
+            <div class="row pt-5">
+                <div class="col-md-8 mx-auto">
+                    <div class="text-center mb-4">
+                        <h1 class="display-4 fw-bold mb-4">Tudo o que você precisa saber sobre cães</h1>
                     </div>
-                </div>
+                    <article class="blog-post">
+                        <h2 class="fw-bold mb-3">A Importância de Cuidar do Seu Cão</h2>
+                        <img src="https://via.placeholder.com/800x400" alt="Cão feliz" class="img-fluid mb-4 rounded">
+                        <p class="fs-5 text-muted mb-4">Cuidar de um cão é muito mais do que simplesmente alimentá-lo. Os cães, como qualquer outro animal de estimação, exigem atenção, carinho, exercícios regulares e cuidados médicos para garantir uma vida longa e saudável. Neste artigo, vamos discutir como proporcionar uma vida de qualidade para o seu amigo de quatro patas.</p>
     
-                <!-- Produtos -->
-                <div class="col-md-10">
-                    <h3 class="display-6 fw-bold mb-3">Nossos produtos</h3>
-                    <p class="fs-6 text-muted mb-5">Explore nossos produtos e serviços exclusivos para cuidados e bem-estar do seu cãozinho!</p>
+                        <h3 class="fw-bold mt-4 mb-3">Alimentação Adequada</h3>
+                        <p class="fs-5 mb-4">A alimentação do seu cão é fundamental para sua saúde. Existem diferentes tipos de alimentos disponíveis no mercado, e escolher o melhor depende da idade, raça e necessidades especiais do seu animal. Consultar um veterinário é essencial para garantir que ele esteja recebendo os nutrientes adequados.</p>
     
-                    <!-- Grid de Produtos -->
-                    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4" data-bind="foreach: produtosNaPagina">
-                        <!-- Item Card -->
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                <img data-bind="attr: { src: Banner }" alt="Produto" class="card-img-top">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title fs-5" data-bind="text: Nome">Erro!</h5>
-                                    <p class="card-text fs-6 text-truncate-2" data-bind="text: Descricao"></p>
-                                    <!-- Preço do produto -->
-                                    <p class="card-text fs-5 text-success" data-bind="text: 'R$ ' + Preco.toFixed(2)"></p>
-                                </div>
-                                <div class="card-footer text-center">
-                                    <!-- Botão de Adicionar ao Carrinho com ícone -->
-                                    <a data-bind="click: function() { $parent.addCarrinho(Id) }" class="btn btn-success">
-                                        <i class="fas fa-shopping-cart"></i> <!-- Ícone do carrinho -->
-                                    </a>
-                                </div>
-                            </div>
+                        <h3 class="fw-bold mt-4 mb-3">Exercício Regular</h3>
+                        <p class="fs-5 mb-4">Os cães precisam de exercício diário para manter a saúde física e mental. Caminhadas, brincadeiras e até mesmo atividades como o agility são ótimas maneiras de manter seu cão ativo e engajado. Além disso, o exercício regular ajuda a prevenir problemas de saúde, como obesidade e doenças articulares.</p>
+    
+                        <h3 class="fw-bold mt-4 mb-3">Visitas ao Veterinário</h3>
+                        <p class="fs-5 mb-4">É essencial levar o seu cão ao veterinário regularmente para exames de rotina e vacinação. O cuidado preventivo pode ajudar a identificar problemas de saúde precocemente, aumentando as chances de tratamento eficaz e evitando complicações futuras.</p>
+    
+                        <h3 class="fw-bold mt-4 mb-3">Amor e Atenção</h3>
+                        <p class="fs-5 mb-4">Além de cuidados físicos, os cães também precisam de carinho e atenção. Passar tempo com seu animal de estimação, seja brincando, acariciando ou apenas relaxando juntos, é uma parte essencial da saúde emocional dele. Lembre-se: a amizade e o vínculo com seu cão são fundamentais para o bem-estar dele!</p>
+                        
+                        <div class="text-center mt-5">
+                            <p class="fs-5 text-muted">Esses cuidados são a base para uma vida longa e feliz para o seu cão. Dê a ele o melhor, e ele retribuirá com amor incondicional!</p>
                         </div>
-                    </div>                    
-                    <div class="d-flex justify-content-center mt-4">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination">
-                                <li class="page-item" data-bind="css: { 'disabled': paginaAtual() <= 1 }">
-                                    <button class="page-link" data-bind="click: paginaAnterior">Anterior</button>
-                                </li>
-                                <li class="page-item" data-bind="css: { 'active': paginaAtual() === 1 }">
-                                    <span class="page-link" data-bind="text: 1"></span>
-                                </li>
-                                <li class="page-item" data-bind="css: { 'active': paginaAtual() === 2 }">
-                                    <span class="page-link" data-bind="text: 2"></span>
-                                </li>
-                                <li class="page-item" data-bind="css: { 'active': paginaAtual() === 3 }">
-                                    <span class="page-link" data-bind="text: 3"></span>
-                                </li>
-                                <li class="page-item" data-bind="css: { 'disabled': paginaAtual() >= totalPaginas() }">
-                                    <button class="page-link" data-bind="click: paginaProxima">Próximo</button>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>                                     
+                    </article>
+                </div>
             </div>
         </div>
     </section>
-     
+    
+      
+    <section></section>
+    <section></section>
     <footer>
         <div class="container py-4 py-lg-5">
             <div class="row row-cols-2 row-cols-md-4">
@@ -149,21 +115,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/knockout-3.5.1.js"></script>
-    <script src="assets/js/produtos.js"></script>
     <script>
-        const isLoggedIn = localStorage.getItem("atual") != null;
-    
-        const authLink = document.getElementById("authLink");
-    
-        if (isLoggedIn) {
-            // Usuário logado - Exibir perfil
-            authLink.href = "perfil.html";
-            authLink.innerHTML = '<i class="fas fa-user"></i> Perfil';
-        } else {
-            // Usuário não logado - Exibir login/registro
-            authLink.href = "perfil.html";
-            authLink.innerHTML = '<i class="fas fa-user"></i> Login/Registo';
-        }
+    const isLoggedIn = localStorage.getItem("atual") != null;
+
+    const authLink = document.getElementById("authLink");
+
+    if (isLoggedIn) {
+        // Usuário logado - Exibir perfil
+        authLink.href = "perfil.html";
+        authLink.innerHTML = '<i class="fas fa-user"></i> Perfil';
+    } else {
+        // Usuário não logado - Exibir login/registro
+        authLink.href = "perfil.html";
+        authLink.innerHTML = '<i class="fas fa-user"></i> Login/Registo';
+    }
     </script>
 </body>
 

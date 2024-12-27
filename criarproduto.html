@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa do Cão</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/navbar.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <!-- Imagem clicável que redireciona para o index.html -->
+        <a href="index.html">
+            <img src="./assets/img/casadocaoverde.png" alt="Casa do Cão Logo">
+        </a>
+        
+        <!-- Botão de logout -->
+        <a href="#" id="logoutButton" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> <!-- Ícone de logout -->
+        </a>
+
+        <a href="perfil.html" class="nav-link"><i class="fas fa-calendar"></i> Pedidos</a>
+        <a href="criarproduto.html" class="nav-link"><i class="fas fa-user"></i> Produtos</a>
+    </div>
+    <div class="main-content">
+        <form id="productForm" class="form-container">
+            <h2>Criar Novo Produto</h2>
+        
+            <label for="nome">Nome do Produto:</label>
+            <input type="text" id="nome" name="nome" placeholder="Nome do Produto *" required>
+        
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" name="categoria" required>
+                <option value="" disabled selected>Escolha uma Categoria</option>
+                <option value="Higiene">Higiene</option>
+                <option value="Alimentos">Alimentos</option>
+                <option value="Acessórios">Acessórios</option>
+                <option value="Brinquedos">Brinquedos</option>
+                <option value="Medicamentos">Medicamentos</option>
+            </select>
+        
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" placeholder="Descrição do Produto *" required></textarea>
+        
+            <label for="preco">Preço:</label>
+            <input type="number" id="preco" name="preco" placeholder="Preço *" required min="0">
+        
+            <label for="stock">Stock:</label>
+            <input type="number" id="stock" name="stock" placeholder="Stock *" required min="0">
+        
+            <label for="banner">Banner (URL da Imagem):</label>
+            <input type="url" id="banner" name="banner" placeholder="URL do Banner *" required>
+        
+            <button type="button" class="btn" onclick="criarProduto()">Criar Produto</button>
+        </form>        
+    </div>
+
+    <!-- Adicione Font Awesome -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/knockout-3.5.1.js"></script>
+    <script src="assets/js/obrigalogin.js"></script>
+    <script src="assets/js/pedidos.js"></script>
+    <script>
+        function criarProduto() {
+    // Captura os valores dos campos do formulário
+    var nome = document.getElementById('nome').value;
+    var categoria = document.getElementById('categoria').value;
+    var descricao = document.getElementById('descricao').value;
+    var preco = parseFloat(document.getElementById('preco').value);
+    var stock = parseInt(document.getElementById('stock').value);
+    var banner = document.getElementById('banner').value;
+
+    // Verifica se todos os campos foram preenchidos
+    if (!nome || !categoria || !descricao || !preco || !stock || !banner) {
+        alert('Por favor, preencha todos os campos!');
+        return;
+    }
+
+    // Criando o novo objeto produto
+
+    // Recupera os produtos existentes do localStorage ou cria um array vazio caso não exista
+    var produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+
+    var produto = {
+        Id: Date.now(),
+        Nome: nome,
+        Categoria: categoria,
+        Descricao: descricao,
+        Preco: preco,
+        Qtd: 0,
+        Stock: stock,
+        Banner: banner,
+    };
+
+    // Adiciona o novo produto ao array
+    produtos.push(produto);
+
+    // Salva o array de produtos de volta no localStorage
+    localStorage.setItem('produtos', JSON.stringify(produtos));
+
+    // Exibe uma mensagem de sucesso
+    alert('Produto criado com sucesso!');
+
+    // Reseta o formulário
+    document.getElementById('productForm').reset();
+}
+
+    </script>
+</body>
+</html>
